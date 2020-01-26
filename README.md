@@ -26,4 +26,21 @@ while you watch the `tail -f ...` output of the process(es).
 ### make available on PATH
 copy `process-pause.sh process-continue.sh` into your `/usr/local/bin` or anywhere else in `echo $PATH`.
 
+# reinventing the wheel
+the `pgrep/pkill` (from [procps-ng](https://gitlab.com/procps-ng/procps/blob/master/README.md)) actually allows to do this already:
 
+see the processes:
+
+    pgrep -f processTestPrinter.py
+    ps aux | grep processTestPrinter.py | grep -v grep
+
+pause them
+
+    pkill -STOP -f processTestPrinter.py
+    ps aux | grep processTestPrinter.py | grep -v grep
+    
+continue them
+
+    pkill -CONT -f processTestPrinter.py
+    ps aux | grep processTestPrinter.py | grep -v grep
+    
