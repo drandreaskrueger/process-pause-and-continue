@@ -26,8 +26,4 @@ while you watch the `tail -f ...` output of the process(es).
 ### make available on PATH
 copy `process-pause.sh process-continue.sh` into your `/usr/local/bin` or anywhere else in `echo $PATH`.
 
-### Known issues
-It works also for MANY processes with SAME search term 'processTestPrinter.py' BUT then prints an error "process-pause.sh ... syntax error in expression". See https://github.com/drandreaskrueger/process-pause-and-continue/issues/1.
-
-  
 

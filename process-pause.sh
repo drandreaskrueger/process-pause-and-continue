@@ -8,17 +8,17 @@ if [ $# -eq 0 ]
     exit
 fi
 
-PID_FOUND=$(ps aux | grep $1 | grep -v grep | awk '{ print $2 }')
-if [[ $PID_FOUND -eq "" ]]
+PID_FOUND=$(ps aux | grep $1 | grep -v grep | grep -v process-pause.sh | awk '{ print $2 }')
+if [[ "$PID_FOUND" == "" ]]
   then
     echo "No such process found, exiting."
     exit
 fi
 
 echo Found a process with that grep pattern \'$1\': $PID_FOUND
-ps aux | grep $1 | grep -v grep
+ps aux | grep $1 | grep -v grep | grep -v process-pause.sh
 
 echo stopping it, so that it can be continued, see flag S changed to T:
 kill -STOP $PID_FOUND
-ps aux | grep $1 | grep -v grep
+ps aux | grep $1 | grep -v grep | grep -v process-pause.sh
 
