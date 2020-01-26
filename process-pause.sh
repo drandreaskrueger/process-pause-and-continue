@@ -22,3 +22,4 @@ echo stopping it, so that it can be continued, see flag S changed to T:
 kill -STOP $PID_FOUND
 ps aux | grep $1 | grep -v grep | grep -v process-pause.sh
 
+echo Remember you can do the same with pgrep / pkill: https://github.com/drandreaskrueger/process-pause-and-continue#reinventing-the-wheel
